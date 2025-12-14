@@ -97,10 +97,13 @@
 </ul></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Let us partition time as follows.</p><ul><li><p>Suppose \(j=1,...,T\) indexes the time at which the patient begins treatment, where \(T\) is the time horizon of the decision-maker.</p></li>
+    <p>Suppose payoffs in relation to patients receiving treatment (such as costs or health outcomes) occur over timesteps \(t=1, ..., T\). Let us partition time as follows.</p><ul><li><p>Suppose \(j=1,...,T\) indexes the time at which the patient begins treatment.</p></li>
 <li><p>Suppose \(k=1,...,T\) indexes time since initiating treatment.</p></li>
-</ul><p>In general, \(t=j+k-1\), and we are interested in \(t=1,...,T\).</p>
-<p>The <a href="https://en.wikipedia.org/wiki/Present_value" class="external-link">Present Value</a> of a cashflow \(p_k\) for the \(u_j\) patients who began treatment at time \(j\) and who are in their \(k\)th timestep of treatment is as follows
+</ul><p>In general, \(t=j+k-1\), and we are interested in the set of \((j,k)\) such that \(1 \leq t \leq T\).</p>
+<p>For example, \(t=3\) comprises:</p><ul><li><p>patients who are in the third timestep of treatment that began in timestep 1: (j,k)=(1,3);</p></li>
+<li><p>patients who are in the second timestep of treatment that began in timestep 2, (j,k)=(2,2); and</p></li>
+<li><p>patients who are in the first timestep of treatment that began in timestep 3, (j,k)=(3,1)</p></li>
+</ul><p>The <a href="https://en.wikipedia.org/wiki/Present_value" class="external-link">Present Value</a> of a cashflow \(p_k\) for the \(u_j\) patients who began treatment at time \(j\) and who are in their \(k\)th timestep of treatment is as follows
 $$PV(j,k,l) = u_j \cdot p_k \cdot R_{j+k+l-1} \cdot (1+i)^{2-j-k}$$
 where \(i\) is the risk-free discount rate per timestep, \(p_k\) is the cashflow amount in today’s money, and \(p_k \cdot R_{j+k+l-1}\) is the nominal amount of the cashflow at the time it is incurred, allowing for an offset of \(l = tzero\).</p>
 <p>The total present value, \(TPV(l)\), is therefore the sum over all \(j\) and \(k\) within the time horizon \(T\), namely:
